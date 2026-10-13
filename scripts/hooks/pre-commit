@@ -5,7 +5,16 @@ set -euo pipefail
 # Hard block: Restricted topics
 # -----------------------------
 # Case-insensitive keyword/path blocklist
-PATTERN='(amorc|martinist|osti|templar|confraternity|bota|monograph|order materials|vault|restricted|private|dna|genetic|genome|vcf|23andme|ancestry|myheritage|health|medical|patient|phi_private|private_health)'
+# Generic default. The specific private-source and personal-data term list is NOT committed:
+# put it in scripts/hooks/private_patterns.local (gitignored; one extended-regex alternation per line)
+# or in $HOME/.config/toe/private_patterns, and it is appended here at runtime.
+PATTERN='(monograph|order materials|members[-_ ]only|oath[-_ ]bound|vault|restricted|private|dna|genetic|genome|vcf|health|medical|patient|phi_private|private_health)'
+for _pf in "$(dirname "$0")/private_patterns.local" "$HOME/.config/toe/private_patterns"; do
+  if [ -f "$_pf" ]; then
+    _extra=$(grep -v -E '^\s*(#|$)' "$_pf" | paste -sd'|' -)
+    [ -n "$_extra" ] && PATTERN="(${PATTERN#(}"; PATTERN="${PATTERN%)}|${_extra})"
+  fi
+done
 
 # -----------------------------
 # Secret detection patterns
@@ -30,7 +39,8 @@ SECRET_PATTERNS=(
 ALLOW_DATA_RE='^(data/public/|data/research/|datasets/public/|datasets/research/)'
 
 # Block suspicious personal-data filenames anywhere (even in allowlisted dirs)
-SENSITIVE_NAME_RE='(23andme|ancestry|ancestrydna|myheritage|genomelink|rawdna|raw_dna|genome|genetic|dna|health|medical|patient|fitbit|oura|whoop|apple_health|garmin|prometheus)'
+SENSITIVE_NAME_RE='(genome|genetic|dna|rawdna|raw_dna|health|medical|patient|wearable|biometric)'
+# Vendor-specific personal-data filename terms belong in private_patterns.local (see above), not here.
 
 # -----------------------------
 # Hard block: File extensions

@@ -1,7 +1,7 @@
 # PRIVATE_VAULT_SAFETY_RULES
 
 You must treat certain materials as **restricted / non-publishable**.
-These include (but are not limited to): AMORC, Martinist, OSTI, Templar, Confraternity of the Rose Cross, BOTA monographs/manuals, and any related PDFs, scans, mailings, or member-only content.
+These include any members-only, oath-bound or licensed material from private orders, lineages or courses (monographs, manuals, mailings, scans) and any personal health or genetic data. The specific list of source families lives outside this repository (scripts/hooks/private_patterns.local, gitignored).
 
 **Hard rules:**
 
@@ -9,7 +9,7 @@ These include (but are not limited to): AMORC, Martinist, OSTI, Templar, Confrat
 2. Never add restricted materials to git, never commit them, never push them to GitHub.
 3. Never include restricted content in READMEs, docs, issues, PRs, datasets, or training corpora that could be published.
 4. You may only work with **user-authored summaries, user-authored exercises, and high-level concept labels** that do not disclose proprietary text.
-5. Treat any folder named `vault/`, `private/`, `restricted/`, `orders/`, `amorc/`, `martinist/`, `osti/`, `templar/`, `confraternity/`, `bota/`, `dna/`, `genetics/`, `genome/`, `health/`, `medical/`, `phi_private/`, `private_health/` as **PRIVATE** and **OUT OF SCOPE** for publication.
+5. Treat any folder named `vault/`, `private/`, `restricted/`, `orders/`, `dna/`, `genetics/`, `genome/`, `health/`, `medical/`, `phi_private/`, `private_health/` (and any folder named after a private source family) as **PRIVATE** and **OUT OF SCOPE** for publication.
 6. Never commit, paste, or include personal health data, DNA/genetic data, or genetic file formats (VCF, BAM, FASTQ, etc.) in any repository, documentation, or public-facing content.
 7. If asked to integrate ideas from restricted sources, output only:
 

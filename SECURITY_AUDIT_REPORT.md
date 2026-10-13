@@ -80,8 +80,8 @@
 - ✅ Pre-commit hook (`scripts/hooks/pre-commit`) - Blocks restricted content
 
 **Pre-commit Hook Capabilities:**
-- Blocks restricted keywords (amorc, martinist, osti, templar, etc.)
-- Blocks personal data filenames (23andme, ancestry, health, etc.)
+- Blocks restricted-source keywords (generic terms committed; the specific source-family list is kept in an uncommitted local file)
+- Blocks personal-data filenames (genetic, health, biometric terms; vendor names kept in the local file)
 - Blocks restricted file types (PDFs outside papers/docs, genomics formats)
 - Blocks large files (>5MB)
 - Allows research PDFs in `papers/` and `docs/` directories

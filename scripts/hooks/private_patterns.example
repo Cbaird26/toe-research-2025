@@ -1,0 +1,6 @@
+# Copy to scripts/hooks/private_patterns.local (gitignored) or ~/.config/toe/private_patterns
+# and list, one per line, the extra case-insensitive terms the pre-commit hook must block:
+# names of private orders / source families, vendor names of personal-data exports, family names.
+# This example file is intentionally generic; never commit the real list.
+members-only
+oath-bound
