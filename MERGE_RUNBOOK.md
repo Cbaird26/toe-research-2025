@@ -14,7 +14,7 @@
 
 ## Step 1: Open PR in Browser (MANUAL)
 
-1. Go to: https://github.com/Cbaird26/A-Theory-of-Everything---Baird-et-al-2025-.pdf.git
+1. Go to: https://github.com/Cbaird26/toe-research-2025.git
 2. Click **Pull requests** → **New pull request**
 3. Set (double-check these):
    - **Base:** `main` ← **Compare:** `toe-closeout-v1`
