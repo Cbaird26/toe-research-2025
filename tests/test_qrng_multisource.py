@@ -26,7 +26,7 @@ def create_synthetic_source_csv(path: Path, source_id: str, n: int, bias: float 
         n: Number of bits
         bias: Bias parameter (p = 0.5 + bias, so bias=0.0 is fair)
     """
-    from datetime import datetime, timezone
+    from datetime import datetime, timedelta, timezone
     
     p = 0.5 + bias
     import random
@@ -40,7 +40,7 @@ def create_synthetic_source_csv(path: Path, source_id: str, n: int, bias: float 
         
         for i in range(n):
             bit = 1 if random.random() < p else 0
-            timestamp = (base_time.timestamp() + i).isoformat()
+            timestamp = (base_time + timedelta(seconds=i)).isoformat()
             writer.writerow({
                 "timestamp": timestamp,
                 "bit": str(bit),
@@ -171,4 +171,3 @@ def test_pooled_epsilon_max_single_source():
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])
-

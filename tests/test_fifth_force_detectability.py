@@ -102,7 +102,7 @@ def test_detectability_r_computation(synthetic_curve, tmp_path):
     """Test that r = alpha_pred / alpha_max is computed correctly."""
     # Create a point that should be in range
     points = [{
-        "m_phi_GeV": 1e-14,  # Will give lambda ~ 0.02 m (in range)
+        "m_phi_GeV": 2e-14,  # Gives lambda ~ 0.01 m (in range)
         "theta": 1e-20,
         "mu_sb_over_m_h": 0.01,
     }]
@@ -222,4 +222,3 @@ def test_detectability_frequency_values_positive(synthetic_curve):
             if lambda_m > 0:
                 assert f_eq > 0, f"f_eq should be positive for lambda_m={lambda_m}, got {f_eq}"
                 assert E_eq > 0, f"E_eq should be positive for f_eq={f_eq}, got {E_eq}"
-

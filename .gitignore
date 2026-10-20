@@ -34,6 +34,7 @@ results/fifth_force/*.json
 !data/raw/fifth_force/.gitkeep
 
 PRIVATE_VAULT_SAFETY_RULES.md
+VAULT_POLICY.md
 
 # local-only blocklist for scripts/hooks/pre-commit
 scripts/hooks/private_patterns.local

@@ -85,11 +85,11 @@ def test_freq_to_energy_eV_eotwash_ranges():
     # Should be approximately 2.12×10^-4 eV
     assert 2.11e-4 < E_eV < 2.13e-4
     
-    # At f_eq = 1.59×10^12 Hz: E ≈ 6.59×10^-3 eV
+    # At f_eq = 1.59×10^12 Hz: E ≈ 6.58×10^-3 eV
     freq_hz = 1.59e12
     E_eV = freq_to_energy_eV(freq_hz)
-    # Should be approximately 6.59×10^-3 eV
-    assert 6.58e-3 < E_eV < 6.60e-3
+    # Should be approximately 6.58×10^-3 eV
+    assert 6.57e-3 < E_eV < 6.58e-3
 
 
 def test_freq_to_energy_eV_edge_cases():
@@ -131,4 +131,3 @@ def test_conversion_constants():
     
     # Elementary charge
     assert abs(E_CHARGE - 1.602176634e-19) < 1e-28
-

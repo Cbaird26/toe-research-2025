@@ -136,4 +136,3 @@ echo "${STAGED}" | while IFS= read -r file; do
 done
 
 exit 0
-
