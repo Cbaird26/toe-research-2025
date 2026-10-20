@@ -1,7 +1,6 @@
 # Next Steps: Complete v1.4.0 Release
 
-**Current Status:** ✅ All automated infrastructure complete  
-**Time to Complete:** ~20 minutes
+**Current Status:** ✅ Automated code and tests complete; local artifact provenance review remains
 
 ---
 
@@ -31,16 +30,17 @@ docs/dev/digitization_visuals/
 **Instructions:** `docs/dev/digitization_visuals/FILE_PLACEMENT_CHECKLIST.md`
 
 **Frequency Atlas:**
-- Compare downloaded files with existing versions
-- Update if improvements found
+Comparison completed on 2026-10-20: 254 local files matched the newly published upstream set exactly. The remaining local-only raw datasets and release bundles, plus six locally deleted legacy plots, require an explicit provenance decision before publication. No local-only release artifacts were pushed.
 **Instructions:** `docs/FREQUENCY_ATLAS_COMPARISON.md`
 
 ### 2. Verify Integration (2 minutes)
 
 ```bash
 make fifth-data-ledger
-make test
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3.13 -m pytest -q -p no:debugging tests
 ```
+
+The explicit pytest invocation avoids the repository's `code/` package shadowing Python's standard-library `code` module during pytest's debugging-plugin startup. The suite passed with 57 tests on 2026-10-20.
 
 ### 3. Prepare Release Bundle (3 minutes)
 
