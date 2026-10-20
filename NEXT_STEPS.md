@@ -49,8 +49,8 @@ make prepare-release VERSION=v1.4.0
 ```
 
 **Output:**
-- `mqgt_scf_release_v1.4.0.zip`
-- `mqgt_scf_release_v1.4.0.zip.sha256`
+
+Expected artifacts are `mqgt_scf_release_v1.4.0.zip` and its `.sha256` checksum. The existing ZIP was reviewed on 2026-10-20: archive integrity passed, all 171 entries were readable, no sensitive-looking filenames were found, and its SHA-256 matched the recorded checksum. It was created on 2026-01-21, however, so it predates the current code and test fixes and must be regenerated after the remaining local-data provenance decision.
 
 ### 4. Create GitHub Release (5 minutes)
 
